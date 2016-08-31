@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//Spring//DTD Bean//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="storager" class="BrazilCenter.DaoUtils.dao.Storager">
+		<property name="rootDir">
+			<value>/home/test1/DataStore</value>
+		</property>
+	</bean>
+
+</beans>
