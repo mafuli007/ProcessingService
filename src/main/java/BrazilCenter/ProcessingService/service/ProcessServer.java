@@ -16,20 +16,20 @@ import com.rabbitmq.client.ShutdownSignalException;
 
 import BrazilCenter.DaoUtils.dao.Storager;
 import BrazilCenter.Process.MqInterface.MqConnector;
+import BrazilCenter.ProcessingService.Utils.Configuration;
 import BrazilCenter.ProcessingService.Utils.LogUtils;
+import BrazilCenter.ProcessingService.Utils.XMLOperator;
 
 public class ProcessServer extends MqConnector implements Consumer{
 
 	private ThreadPoolExecutor execSvc;
-	private BlockingQueue<String> storageQueue;
 	private Storager storager;
 	
-	public ProcessServer() throws IOException {
-		super("BrazilStoreQueue");
+	public ProcessServer(Configuration conf) throws IOException {
+		super("BrazilStoreQueue", conf.getMqHostIp(), conf.getMqUserName(), conf.getMqPasswd());
 		this.execSvc = (ThreadPoolExecutor) Executors.newCachedThreadPool();
-		this.storageQueue = new LinkedBlockingQueue<String>();
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("./applicationContext.xml");
 		this.storager = (Storager) context.getBean("storager");
 
 	}
@@ -68,9 +68,13 @@ public class ProcessServer extends MqConnector implements Consumer{
 	
 	public static void main(String[] args) {
 
+		XMLOperator xmlParser = new XMLOperator();
+		xmlParser.Initial();
+		Configuration conf = xmlParser.getConfiguration();
+		
 		ProcessServer processServer = null;
 		try {
-			processServer = new ProcessServer();
+			processServer = new ProcessServer(conf);
 			processServer.start();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

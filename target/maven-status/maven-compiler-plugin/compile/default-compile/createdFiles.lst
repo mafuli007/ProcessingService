@@ -1,7 +1,10 @@
+BrazilCenter\ProcessingService\Utils\Configuration.class
 BrazilCenter\ProcessingService\service\ProcessServer.class
+BrazilCenter\ProcessingService\Utils\LogUtils.class
+BrazilCenter\ProcessingService\err\ProcessException.class
+BrazilCenter\ProcessingService\Interface\IBrazilDataPrcoess.class
+BrazilCenter\ProcessingService\Utils\XMLOperator.class
 BrazilCenter\ProcessingService\impl\AtmosphericDensityData.class
 BrazilCenter\ProcessingService\impl\FluxgateMagnetometerData.class
 BrazilCenter\ProcessingService\service\Processor.class
-BrazilCenter\ProcessingService\err\ProcessException.class
-BrazilCenter\ProcessingService\Interface\IBrazilDataPrcoess.class
 BrazilCenter\ProcessingService\Interface\BrazilDataFile.class
