@@ -3,10 +3,6 @@
 
 <beans>
 
-	<bean id="storager" class="BrazilCenter.DaoUtils.dao.Storager">
-		<property name="rootDir">
-			<value>/home/test1/DataStore</value>
-		</property>
-	</bean>
+	<bean id="storager" class="BrazilCenter.DaoUtils.dao.Storager"></bean>
 
 </beans>

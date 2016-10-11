@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+
+	<!--Software Id-->
+	<SoftwareId>processService</SoftwareId>
+
+	<!-- Mq server configuration -->
+	<MqServerInfo>
+		<MqServerIP>192.168.183.129</MqServerIP>
+		<MqUserName>admin</MqUserName>
+		<MqPasswd>admin</MqPasswd>
+	</MqServerInfo>
+	
+	<!-- the directory used to store data files. -->
+	<StoreRootDir>/home/test1/DataStore</StoreRootDir>
+
+</items>

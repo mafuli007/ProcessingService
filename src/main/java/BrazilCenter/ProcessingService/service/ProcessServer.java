@@ -1,9 +1,7 @@
 package BrazilCenter.ProcessingService.service;
 
 import java.io.IOException;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 
 import org.springframework.context.ApplicationContext;
@@ -29,8 +27,9 @@ public class ProcessServer extends MqConnector implements Consumer{
 		super("BrazilStoreQueue", conf.getMqHostIp(), conf.getMqUserName(), conf.getMqPasswd());
 		this.execSvc = (ThreadPoolExecutor) Executors.newCachedThreadPool();
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("./applicationContext.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		this.storager = (Storager) context.getBean("storager");
+		this.storager.setRootDir(conf.getRootDir());
 
 	}
 
